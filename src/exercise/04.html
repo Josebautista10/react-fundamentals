@@ -11,14 +11,48 @@
 
     // 🐨 use that function in place of the divs below with:
     // 💰 {message({children: 'Hello World'})} {message({children: 'Goodbye World'})}
-    const element = (
-      <div className="container">
-        <div className="message">Hello World</div>
-        <div className="message">Goodbye World</div>
-      </div>
-    )
+    function Message({subject, greeting}) {
+  return (
+    <div className="message">
+      {greeting}, {subject}
+    </div>
+  )
+}
 
-    // 💯 This is only the first step to making actual React components. The rest is in the extra credit!
+
+      // FIRST SOLUTION
+    // const element = (
+    //   <div className="container">
+    //     {message({children: 'Hello World'})}
+    //     {message({children: 'Goodbye World'})}
+    //   </div>
+    // )
+
+      // FIRST CREDIT SOLUTION
+    // const element = (
+    //   <div className="container">
+    //     {React.createElement(message, {children: 'Hello World'})}
+    //     {React.createElement(message, {children: 'Goodbye World'})}
+    //   </div>
+    // )
+      
+      // SECOND CREDIT SOLUTION
+      // const element = (
+      //   <div className="container">
+      //   <Message greeting="Hello" subject="World"/>
+      //   <Message greeting="Goodbye" subject="World"/>
+      //   </div>
+      //   )
+      
+        // THIRD CREDIT SOLUTION
+      const element = (
+        <React.Fragment className="container">
+        <Message greeting="Hello" subject="World"/>
+        <Message greeting="Goodbye" subject="World"/>
+        </React.Fragment>
+        )
+
+
     ReactDOM.render(element, document.getElementById('root'))
   </script>
 </body>

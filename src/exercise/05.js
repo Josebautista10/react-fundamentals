@@ -4,7 +4,7 @@
 import * as React from 'react'
 import '../box-styles.css'
 
-// 💰 Use the className for the size and style (backgroundColor, fontStyle) for the color and the font style
+// 💰 Use the className for the size and style (backgroundColor) for the color
 // 💰 each of the elements should also have the "box" className applied
 
 // 🐨 add a className prop to each of these and apply the correct class names
@@ -12,16 +12,31 @@ import '../box-styles.css'
 
 // 🐨 add a style prop to each of them as well so their background color
 // matches what the text says it should be as well as `fontStyle: 'italic'`
-const smallBox = <div>small lightblue box</div>
-const mediumBox = <div>medium pink box</div>
-const largeBox = <div>large orange box</div>
+const smallBox = <div className='box box--small' style={{backgroundColor: 'lightblue'}}>small lightblue box</div>
+const mediumBox = <div className='box box--medium' style={{backgroundColor: 'pink'}}>medium pink box</div>
+const largeBox = <div className='box box--large' style={{backgroundColor: 'orange'}}>large orange box</div>
 
+const Box = (props) => {
+  const sizeClassName = props.size ? `box box--${props.size}`:''
+  return <div className={sizeClassName} style={props.style}>small lightblue box</div>
+}
 function App() {
   return (
     <div>
-      {smallBox}
+    {/* MAIN SOLUTION */}
+      {/* {smallBox}
       {mediumBox}
-      {largeBox}
+      {largeBox} */}
+      
+      {/* FIRST CREDIT */}
+    {/* <Box className='box box--small' style={{backgroundColor: 'lightblue'}}/>
+    <Box className='box box--medium' style={{backgroundColor: 'pink'}}/>
+    <Box className='box box--large' style={{backgroundColor: 'orange'}}/> */}
+
+      {/* SECOND CREDIT */}
+      <Box size='small' style={{backgroundColor: 'lightblue'}}/>
+    <Box size='medium' style={{backgroundColor: 'pink'}}/>
+    <Box size='large' style={{backgroundColor: 'orange'}}/>
     </div>
   )
 }
